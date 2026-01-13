@@ -1,0 +1,1 @@
+prompt("Entersomething: ", "defult text");
