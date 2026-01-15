@@ -5,16 +5,13 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def home():                                                     	#remove name=None parameter
-    print(session)
-    a_name = session.get("name", None)                            	#default to None if not exists
-    return render_template("index.html", name=a_name)        	    #pass data to Jinja templating
+def home():
+    return render_template('index.html')
 
 @app.route('/greet')
 @app.route('/greet/<a_name>')
-def greet(a_name=None):
-        session['name'] = a_name
-        return redirect( url_for('home') )
+def greet(a_name=""):
+        return render_template('greet.html', name=a_name)
     
 
 
