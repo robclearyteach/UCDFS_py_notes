@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block main_content %}
+    {% if name %}
+
+        <h1>{{name}}  you can do this!</h1>
+        <p>Yes {{name}}, yes you can </p>
+    
+    {% else %}
+        <h1>You can do this!</h1>
+        <p>Yes you can </p>
+    
+    {% endif %}
+
+{% endblock %}
+
