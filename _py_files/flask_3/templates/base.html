@@ -16,10 +16,10 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
-     <nav>
+    <nav>
       <ul>
-       <li><a href="{{url_for('home')}}">Home</a></li>
-       <li><a href="{{url_for('greet')}}">Greet</a></li>
+        <li><a href="{{url_for('home')}}">Home-visible text of link</a></li> 
+        <li><a href="{{url_for('greet')}}">Greet</a></li>
       </ul>
     </nav>
     {% block main_content%}
