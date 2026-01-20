@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} {{title | default('--Login--')}} {% endblock %}
+
+
+
+{% block content %}   
+    <p> <a href="{{url_for('index')}}">Home</a> </p>
+    
+    <form action="/login" method="POST" >
+        <label for="name">GET Name:</label>
+
+        <input type="text" id="get-name" name="first" required>
+        <input type="text" id="get-name" name="last" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}
