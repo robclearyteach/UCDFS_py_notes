@@ -1,1 +1,1 @@
-data = []
+data = ["make tea", "go to sleep"]

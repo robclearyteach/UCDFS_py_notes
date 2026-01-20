@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %} DefaultTitle {% endblock %}
+{% block title %} {{ title | default('DefaultTitle') }}  {% endblock %}
 
-{% block content %}       
+{% block content %} 
+    {% if msg %}
+        <p>{{msg}}</p>     
+    {% endif %}
+
     <form action="/" method="GET" >
-        <label for="name">Name:</label>
-        <input type="text" id="get-name" name="name" required>
+        <label for="get-name">GET Name:</label>
+        <input type="text" id="get-name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/" method="POST" >
+        <label for="post-name">POST Name:</label>
+        <input type="text" id="post-name" name="name">
         <button type="submit">Submit</button>
     </form>
 {% endblock %}
