@@ -3,6 +3,7 @@
     <style>
         .product-gallery{
             display:flex;
+            flex-wrap:wrap;
             flex-direction: row;
             justify-content: space-around;
         }
@@ -10,15 +11,15 @@
 {% endblock %}
 {% block content %}
     <div class="product-gallery">
-
     {% for product in products%}
-        <figure >
-            
+    
+        <figure > 
             <img    height="200px"
                     src="{{product['image_url']}}" 
                     alt="image of product">
             <figcaption>€{{product['price']}}, {{product['description']}}</figcaption>
         </figure>
+    
     {% endfor%}
     </div>
      

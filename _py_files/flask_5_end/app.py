@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -27,8 +27,6 @@ products = {
 def index():
     return render_template("index.html")
 
-
-
 @app.route("/add-item",  methods=["GET"]) #now BOTH
 def add_item_form():
     return render_template("form.html")
@@ -36,13 +34,11 @@ def add_item_form():
     
 @app.route("/add-item",  methods=["POST"]) #now BOTH
 def add_item_data():
-    print(request.form)
     form_input = request.form.get("name") 
     product = {"description": form_input}
     index = len(products)+1
     products[index]= product        #add product
-    return products
-    # return redirect(url_for("shop"))
+    return redirect(url_for("shop"))
 
 
 @app.route("/order/<int:id>",  methods=["POST"])  
@@ -64,19 +60,6 @@ def shop(search_term=""):
             search_results.append(product)
 
     return render_template("shop.html", products=search_results)
-
-datastore={
-    'greet_word': 'hi'
-}
-@app.route("/products")
-def json_products():
-    return jsonify(datastore)
-
-@app.route("/products", methods=["POST"])
-def json_product_post():
-    data = request.get_json()
-    datastore['greet_word'] = data['greet_word']
-    return jsonify(datastore)
 
 
 if __name__ == '__main__':

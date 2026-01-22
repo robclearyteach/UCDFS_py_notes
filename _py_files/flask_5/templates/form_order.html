@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <form action="{{ url_for('order_post', order_id=order_id) }}" method="POST">
+    <label for="order-id">ID of product to order:</label>
+    <input type="text" id="order-id" name="order_id">
+    <button type="submit">Submit</button>
+</form>
+
+
+{% endblock %}
+
+
